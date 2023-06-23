@@ -5,7 +5,7 @@ import Finished from './Finished';
 import Education from './Education';
 
 //FIGURE OUT HOW TO RETURN SCHOOL OBJECT
-// FROM EDUCATION COMPONENT /////////////////
+// FROM EDUCATION COMPONENT //////////////////
 
 class App extends Component {
   constructor(props) {
