@@ -2,7 +2,10 @@ import './App.css';
 import React, { Component } from 'react';
 import Bio from './Bio';
 import Finished from './Finished';
+import Education from './Education';
 
+//FIGURE OUT HOW TO RETURN SCHOOL OBJECT
+// FROM EDUCATION COMPONENT /////////////////
 
 class App extends Component {
   constructor(props) {
@@ -12,7 +15,8 @@ class App extends Component {
       firstName: "",
       lastName: "",
       email: "",
-      phone: ""
+      phone: "",
+      schools: []
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -20,9 +24,10 @@ class App extends Component {
   }
 
   handleChange(event){
+    const {name, value} = event.target
     this.setState((prev) => ({
       ...prev,
-      [event.target.name]:event.target.value,
+      [name]: name === value,
       pushed: false
     }))
   }
@@ -40,6 +45,10 @@ class App extends Component {
       <div className="app">
         <div className="form">
           <Bio 
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          />
+          <Education 
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
           />
