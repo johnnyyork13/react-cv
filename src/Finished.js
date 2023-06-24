@@ -1,21 +1,46 @@
 import React, { Component } from 'react';
 
-class Finished extends Component{
+class AddSchool extends Component {
     render() {
         return (
-            <div className="finished">
-                <h1>Biography</h1>
-                <label>Name: 
-                    <p>{this.props.pushed && this.props.firstName} {this.props.pushed && this.props.lastName}</p>
+            <div className="education-finished">
+                <label>School Name:
+                    <p>{this.props.schoolName}</p>
                 </label>
+                <label>Education Level:
+                    <p>{this.props.educationLevel}</p>
+                </label>
+            </div>
+        )
+    }
+}
 
-                <label>Email: 
-                    <p>{this.props.pushed && this.props.email}</p>
-                </label>
-                
-                <label>Phone: 
-                    <p>{this.props.pushed && this.props.phone}</p>
-                </label>
+class Finished extends Component{
+    render() {
+        const educationMap = this.props.schools.map((obj) => 
+            <AddSchool 
+                schoolName={obj.schoolName}
+                educationLevel={obj.educationLevel}
+            />)
+        return (
+            <div className="finished">
+                <div class="bio-finished">
+                    <h2>Biography</h2>
+                    <label>Name:
+                        <p>{this.props.firstName} {this.props.lastName}</p>
+                    </label>
+                    <label>Email:
+                        <p>{this.props.email}</p>
+                    </label>
+                    
+                    <label>Phone:
+                        <p>{this.props.phone}</p>
+                    </label>
+                </div>
+                <div className="education-finished">
+                    <h2>Education</h2>
+                    {educationMap}
+                </div>
             </div>
         )
     } 

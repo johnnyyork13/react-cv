@@ -16,26 +16,43 @@ class App extends Component {
       lastName: "",
       email: "",
       phone: "",
-      schools: []
+      schools: [],
+      jobs: [],
+      //temporary value variables
+      schoolName: "",
+      educationLevel: "",
+      jobName: "",
+      jobTitle: "",
+      jobTasks: [],
+      jobTask: ""
     }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
   }
 
   handleChange(event){
     const {name, value} = event.target
     this.setState((prev) => ({
       ...prev,
-      [name]: name === value,
-      pushed: false
+      [name]: value 
+      //pushed: false
     }))
   }
 
   handleSubmit(event) {
+    const schoolArray = this.state.schools;
     event.preventDefault();
     this.setState((prev) => ({
       ...prev,
+      schools: [
+        ...schoolArray,
+        {
+          schoolName: this.state.schoolName,
+          educationLevel: this.state.educationLevel
+        }
+      ],
       pushed: true
     }))
   }
@@ -60,6 +77,7 @@ class App extends Component {
           lastName={this.state.lastName}
           email={this.state.email}
           phone={this.state.phone}
+          schools={this.state.schools}
         />
 
       </div>
