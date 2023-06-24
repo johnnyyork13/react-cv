@@ -1,30 +1,27 @@
-import './App.css';
 import React, { Component } from 'react';
-import Bio from './Bio';
-import Finished from './Finished';
-import Education from './Education';
-
-//FIGURE OUT HOW TO RETURN SCHOOL OBJECT
-// FROM EDUCATION COMPONENT //////////////////
+import Bio from './components/Bio'
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pushed: false,
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      schools: [],
-      jobs: [],
-      //temporary value variables
-      schoolName: "",
-      educationLevel: "",
-      jobName: "",
-      jobTitle: "",
-      jobTasks: [],
-      jobTask: ""
+      bio: {
+        firstName: "",
+        lastName: "",
+        phone: "",
+        email: "",
+      },
+      education: {
+        schoolList: [],
+        schoolName: "",
+        schoolDegree: "",
+      },
+      job: {
+        jobList: [],
+        jobName: "",
+        jobTitle: "",
+        jobDescription: ""
+      }
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -32,57 +29,35 @@ class App extends Component {
 
   }
 
-  handleChange(event){
-    const {name, value} = event.target
-    this.setState((prev) => ({
-      ...prev,
-      [name]: value 
-      //pushed: false
+  handleChange(event) {
+    event.preventDefault();
+
+    const [name, value] = event.target;
+
+    this.setState((oldState) => ({
+      ...oldState,
+      [name] : [value]
     }))
   }
 
   handleSubmit(event) {
-    const schoolArray = this.state.schools;
     event.preventDefault();
-    this.setState((prev) => ({
-      ...prev,
-      schools: [
-        ...schoolArray,
-        {
-          schoolName: this.state.schoolName,
-          educationLevel: this.state.educationLevel
-        }
-      ],
-      pushed: true
-    }))
   }
 
   render() {
     return (
-      <div className="app">
-        <div className="form">
+      <div className="main-container">
+        <div className="form-container">
           <Bio 
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-          />
-          <Education 
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
+            handleChange={this.handleChange}
           />
         </div>
-        
-        <Finished 
-          pushed={this.state.pushed}
-          firstName={this.state.firstName}
-          lastName={this.state.lastName}
-          email={this.state.email}
-          phone={this.state.phone}
-          schools={this.state.schools}
-        />
-
       </div>
     )
   }
+
+
+
 }
 
 export default App;
