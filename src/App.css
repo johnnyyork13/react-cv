@@ -1,38 +1,49 @@
-.App {
-  text-align: center;
+.main-container {
+  display: flex;
+  flex-shrink: 0;
+  min-width: 1700px;
+  justify-content: space-around;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.form-container, .resume {
+  border: 1px solid black;
+  min-width: 800px;
+  max-width: 800px;
+  height: 1000px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.form-container label {
+  width: 95%;
+  height: 30px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.form-container > div {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.form-container input {
+  width: 80%;
+  height: 30px;
+  position: absolute;
+  right: 0;
+}
+
+.bio, .school, .job {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
