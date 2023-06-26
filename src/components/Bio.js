@@ -25,7 +25,12 @@ class Bio extends Component {
                 </label>
 
                 <label>Summary:
-                    <textarea className="bio-summary" name="summary" onChange={this.props.handleChange}></textarea>
+                    <textarea 
+                        className="bio-summary" 
+                        name="summary" 
+                        onChange={this.props.handleChange}
+                        placeholder="Write a little bit about yourself."    
+                    ></textarea>
                 </label>
             </form>
         )

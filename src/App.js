@@ -95,8 +95,6 @@ class App extends Component {
         newObj
       ]
     }))
-
-    console.log(this.state);
   }
 
   handleSchoolDelete(e) {

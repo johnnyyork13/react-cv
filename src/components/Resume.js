@@ -25,11 +25,11 @@ class Resume extends Component {
                     </div>
                 </h3>
                 <p className="list-item-study">{school.schoolStudy}</p>
-                <p className="list-item-accomplishments">
+                <span className="list-item-accomplishments">
                     <ul>
                         {this.changeTextToList(school.schoolAccomplishments)}
                     </ul>
-                </p>
+                </span>
 
                 <button type="button" className="delete-button" onClick={() => this.props.handleSchoolDelete(school.key)}>X</button>
             </li>
@@ -45,11 +45,11 @@ class Resume extends Component {
                     <p><strong>{job.jobName} - {job.jobTitle}</strong></p>
                 </div>
             </h3>
-            <p className="list-item-accomplishments">
+            <span className="list-item-accomplishments">
                 <ul>
                     {this.changeTextToList(job.jobDescription)}
                 </ul>
-            </p>
+            </span>
 
             <button type="button" className="delete-button" onClick={() => this.props.handleJobDelete(job.key)}>X</button>
             </li>
