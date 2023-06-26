@@ -9,20 +9,42 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: "",
-      lastName: "",
-      title: "",
-      phone: "",
-      email: "",
-      school: [],
+      firstName: "FirstName",
+      lastName: "LastName",
+      title: "Job Title",
+      phone: "123-456-7890",
+      email: "myemail@gmail.com",
+      summary: "Quis deserunt ea tempor pariatur. Exercitation adipisicing laborum eiusmod labore magna magna dolor et Lorem. Exercitation fugiat proident elit excepteur Lorem commodo. Proident ipsum esse in eu voluptate excepteur esse aute consectetur incididunt pariatur anim. Duis et ea adipisicing quis. Excepteur et adipisicing cupidatat mollit do nostrud elit incididunt dolor cillum duis. Tempor voluptate duis consequat est laborum eiusmod proident aute veniam ut. Dolore irure aliqua enim culpa adipisicing.",
+      school: [
+        {
+          schoolName: "Mercer University",
+          schoolDegree: "Bachelors",
+          schoolYearStarted: "2023",
+          schoolYearFinished: "2025",
+          schoolStudy: "Software Application Development and Human-Computer Interaction",
+          schoolAccomplishments: "Accomplishment One \n Accomplishment Two \n Accomplishment Three"
+        }
+      ],
       schoolName: "",
       schoolDegree: "",
-      schoolYear: "",
-      job: [],
+      schoolYearStarted: "",
+      schoolYearFinished: "",
+      schoolStudy: "",
+      schoolAccomplishments: "",
+      job: [
+        {
+          jobName: "Comcast",
+          jobDescription: "Line One \n Line Two \n Line Three",
+          jobFrom: "2016",
+          jobTo: "2023",
+          jobTitle: "Communications Technician"
+        }
+      ],
       jobName: "",
       jobDescription: "",
       jobFrom: "",
-      jobTo: ""
+      jobTo: "",
+      jobTitle: ""
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -49,14 +71,20 @@ class App extends Component {
       newObj = {
         schoolName: this.state.schoolName,
         schoolDegree: this.state.schoolDegree,
-        schoolYear: this.state.schoolYear,
+        schoolYearStarted: this.state.schoolYearStarted,
+        schoolYearFinished: this.state.schoolYearFinished,
+        schoolStudy: this.state.schoolStudy,
+        schoolAccomplishments: this.state.schoolAccomplishments,
         key: `${this.state.school.length}${this.state.schoolName}`
       }
     } else if (name === "job") {
       newObj = {
         jobName: this.state.jobName,
         jobDescription: this.state.jobDescription,
-        key: `${this.state.school.length}${this.state.schoolName}`
+        jobFrom: this.state.jobFrom,
+        jobTo: this.state.jobTo,
+        jobTitle: this.state.jobTitle,
+        key: `${this.state.job.length}${this.state.jobName}`
       }
     }
 
@@ -89,6 +117,7 @@ class App extends Component {
     return(
       <div className="main-container">
         <div className="form-container">
+          <h2>General Information</h2>
           <Bio
             handleChange={this.handleChange}
           />

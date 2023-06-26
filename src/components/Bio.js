@@ -23,6 +23,10 @@ class Bio extends Component {
                 <label>Phone:
                     <input name="phone" onChange={this.props.handleChange} />
                 </label>
+
+                <label>Summary:
+                    <textarea className="bio-summary" name="summary" onChange={this.props.handleChange}></textarea>
+                </label>
             </form>
         )
     }

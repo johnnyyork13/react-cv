@@ -1,3 +1,14 @@
+html {
+  --light-gray: #94a3b8;
+  --lighter-gray: #e2e8f0;
+  --dark-gray: #1e293b;
+  --darker-gray: #0f172a;
+}
+
+body {
+  background-color: var(--lighter-gray);
+}
+
 .main-container {
   display: flex;
   flex-shrink: 0;
@@ -9,21 +20,53 @@
   border: 1px solid black;
   min-width: 800px;
   max-width: 800px;
-  height: 1000px;
+  min-height: 1000px;
+  padding: 30px;
+  background-color: white;
+  box-shadow: 0px 0px .1em .1em var(--light-gray);
 }
 
 .form-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 0px;
 }
 
 .form-container label {
-  width: 95%;
-  height: 30px;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.list-title {
+  border-bottom: 2px solid var(--light-gray);
+  color: var(--dark-gray)
+}
+
+.bio-item-name {
+  color: var(--dark-gray);
+  font-size: 2.1rem;
+}
+
+.bio-item-p {
+  color: var(--dark-gray);
+  font-size: 1.1em;
+}
+
+.bio-item-title {
+  color: var(--dark-gray);
+  font-size: 1.7rem;
+}
+
+.top-line-label {
+  width: 100%;
+  text-align: center;
+  padding-top: 20px;
+  border-top: 2px solid var(--light-gray);
 }
 
 .form-container > div {
@@ -35,8 +78,6 @@
 .form-container input {
   width: 80%;
   height: 30px;
-  position: absolute;
-  right: 0;
 }
 
 .bio, .school, .job {
@@ -47,3 +88,58 @@
   justify-content: center;
 }
 
+.job-description, .bio-summary, .school-accomplishments {
+  width: 80%;
+  height: 200px;
+  resize: none;
+  overflow: auto;
+}
+
+.list-item{
+  position: relative;
+  color: var(--dark-gray);
+  list-style-type: none;
+}
+
+
+.list-item:hover .delete-button {
+  visibility: visible;
+}
+
+.list-item-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-item-accomplishments {
+  height: fit-content;
+  margin-bottom: 40px;
+}
+
+.delete-button {
+  visibility: hidden;
+  position: absolute;
+  right: 0;
+  top: -15px;
+  background-color: white;
+  border: none;
+  font-size: 1.3em;
+  cursor: pointer;
+}
+
+.add-button {
+  padding: 10px;
+  background-color: var(--lighter-gray);
+  border: 2px solid var(--dark-gray);
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background-color: var(--dark-gray);
+  color: var(--lighter-gray);
+}
+
+.sub-list-item {
+  list-style-type:disc;
+}
