@@ -1,14 +1,17 @@
 import './App.css';
 import { Component } from 'react';
+import Header from './components/Header'
 import Bio from './components/Bio';
 import School from "./components/School";
 import Job from './components/Job';
 import Resume from './components/Resume';
+import Footer from './components/Footer';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      printing: false,
       firstName: "FirstName",
       lastName: "LastName",
       title: "Job Title",
@@ -51,6 +54,7 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSchoolDelete = this.handleSchoolDelete.bind(this);
     this.handleJobDelete = this.handleJobDelete.bind(this);
+    this.handlePrint = this.handlePrint.bind(this);
   }
 
   handleChange(event) {
@@ -111,32 +115,54 @@ class App extends Component {
     }))
   }
 
+  handlePrint() {
+    this.setState(function(oldObj) {
+      return {
+        ...oldObj,
+        printing: !this.state.printing
+      }
+    }, () => {
+      window.print();
+  })
+}
+
   render() {
+    //make sure page is back to normal after printing
+    if (this.state.printing) {
+      this.setState((oldObj) => ({
+        ...oldObj,
+        printing: !this.state.printing
+      }))
+    }
     return(
-      <div className="main-container">
-        <div className="form-container">
-          <h2>General Information</h2>
-          <Bio
-            handleChange={this.handleChange}
-          />
-          <School
-            handleSubmit={this.handleSubmit}
-            handleChange={this.handleChange}
-          />
-          <Job
-            handleSubmit={this.handleSubmit}
-            handleChange={this.handleChange}
-          />
+      <div>
+        <div className="main-container">
+          <Header />
+          {!this.state.printing && <div className="form-container">
+            <h2>General Information</h2>
+            <Bio
+              handleChange={this.handleChange}
+            />
+            <School
+              handleSubmit={this.handleSubmit}
+              handleChange={this.handleChange}
+            />
+            <Job
+              handleSubmit={this.handleSubmit}
+              handleChange={this.handleChange}
+            />
+          </div>}
+          <div className="resume-container">
+            <Resume
+              handleSchoolDelete={this.handleSchoolDelete}
+              handleJobDelete={this.handleJobDelete}
+              className={this.state.printing ? "resume printing" : "resume"}
+              {...this.state}
+            />
+            <button className="print-button" onClick={this.handlePrint}>PRINT</button>
+          </div>
         </div>
-        <div className="resume-container">
-          <Resume 
-            handleSchoolDelete={this.handleSchoolDelete}
-            handleJobDelete={this.handleJobDelete}
-            {...this.state}
-          />
-        </div>
-
-
+        <Footer />
       </div>
     )
   }

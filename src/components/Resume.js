@@ -16,14 +16,14 @@ class Resume extends Component {
     render() {
         const schoolMap = this.props.school.map((school) => 
             <li key={school.key} className="list-item">
-                <h3 className="list-item-title">
+                <div className="list-item-title">
                     <div className="list-item-title-left">
                         <p><strong>{school.schoolYearStarted} - {school.schoolYearFinished}</strong></p>
                     </div>
                     <div className="list-item-title-right">
                         <p><strong>{school.schoolName} - {school.schoolDegree}</strong></p>
                     </div>
-                </h3>
+                </div>
                 <p className="list-item-study">{school.schoolStudy}</p>
                 <span className="list-item-accomplishments">
                     <ul>
@@ -37,14 +37,14 @@ class Resume extends Component {
 
         const jobMap = this.props.job.map((job) => 
             <li key={job.key} className="list-item">
-            <h3 className="list-item-title">
+            <div className="list-item-title">
                 <div className="list-item-title-left">
                     <p><strong>{job.jobFrom} - {job.jobTo}</strong></p>
                 </div>
                 <div className="list-item-title-right">
                     <p><strong>{job.jobName} - {job.jobTitle}</strong></p>
                 </div>
-            </h3>
+            </div>
             <span className="list-item-accomplishments">
                 <ul>
                     {this.changeTextToList(job.jobDescription)}
@@ -56,12 +56,12 @@ class Resume extends Component {
         )
 
         return(
-            <div className="resume">
+            <div className={this.props.className} id="section-to-print">
                 <h1 className="bio-item-name">{this.props.firstName} {this.props.lastName}</h1>
                 <h2 className="bio-item-title">{this.props.title}</h2>
                 <p className="bio-item-p"><strong>Email:</strong> {this.props.email}</p>
                 <p className="bio-item-p"><strong>Phone:</strong> {this.props.phone}</p>
-                <p className="bio-item-p">{this.props.summary}</p>
+                <div className="bio-item-p">{this.props.summary}</div>
                 <h2 className="list-title">Education:</h2>
                 <ul>
                     {schoolMap}
