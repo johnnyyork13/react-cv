@@ -30,7 +30,7 @@ class School extends Component {
                         className="school-accomplishments"
                         name="schoolAccomplishments"
                         onChange={this.props.handleChange}
-                        placeholder="Use enter key to insert bullet point."
+                        placeholder="Use the enter key to insert bullet points."
                         >
                     </textarea>
                 </label>

@@ -18,7 +18,7 @@ class Job extends Component {
                         className="job-description"  
                         name="jobDescription" 
                         onChange={this.props.handleChange}
-                        placeholder="Use enter key to insert bullet point."></textarea>                
+                        placeholder="Use the enter key to insert bullet points."></textarea>                
                 </label>
                 
                 <label>From:
