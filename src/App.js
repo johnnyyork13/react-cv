@@ -38,7 +38,7 @@ class App extends Component {
         {
           jobName: "Google",
           jobDescription: "Line One \n Line Two \n Line Three",
-          jobFrom: "2016",
+          jobFrom: "2021",
           jobTo: "2023",
           jobTitle: "Jr. Developer"
         }
