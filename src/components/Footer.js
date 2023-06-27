@@ -4,7 +4,7 @@ class Footer extends Component{
     render() {
         return(
             <footer>
-                <p>Created by Johnny York - <a href="www.github.com/johnnyyork13">GitHub</a></p>
+                <p>Created by Johnny York - <a href="https://www.github.com/johnnyyork13">GitHub</a></p>
             </footer>
         )
     }
