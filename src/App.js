@@ -20,11 +20,11 @@ class App extends Component {
       summary: "Quis deserunt ea tempor pariatur. Exercitation adipisicing laborum eiusmod labore magna magna dolor et Lorem. Exercitation fugiat proident elit excepteur Lorem commodo. Proident ipsum esse in eu voluptate excepteur esse aute consectetur incididunt pariatur anim. Duis et ea adipisicing quis. Excepteur et adipisicing cupidatat mollit do nostrud elit incididunt dolor cillum duis. Tempor voluptate duis consequat est laborum eiusmod proident aute veniam ut. Dolore irure aliqua enim culpa adipisicing.",
       school: [
         {
-          schoolName: "Mercer University",
+          schoolName: "Some University",
           schoolDegree: "Bachelors",
-          schoolYearStarted: "2023",
+          schoolYearStarted: "2021",
           schoolYearFinished: "2025",
-          schoolStudy: "Software Application Development and Human-Computer Interaction",
+          schoolStudy: "Software Development",
           schoolAccomplishments: "Accomplishment One \n Accomplishment Two \n Accomplishment Three"
         }
       ],
@@ -36,11 +36,11 @@ class App extends Component {
       schoolAccomplishments: "",
       job: [
         {
-          jobName: "Comcast",
+          jobName: "Google",
           jobDescription: "Line One \n Line Two \n Line Three",
           jobFrom: "2016",
           jobTo: "2023",
-          jobTitle: "Communications Technician"
+          jobTitle: "Jr. Developer"
         }
       ],
       jobName: "",
